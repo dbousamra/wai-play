@@ -17,7 +17,18 @@ executable wai-play
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
+  ghc-options:         -threaded -Wall -fno-warn-unused-do-bind -O3
+  other-modules:       Routes
+                     , Api
+                     , Types
   build-depends:       base >= 4.7 && < 5
                      , scotty
+                     , http-types
+                     , free
                      , text
+                     , bytestring
                      , aeson
+                     , hedis
+                     , http-conduit
+                     , async
+                     , uuid

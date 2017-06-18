@@ -1,0 +1,19 @@
+version: "2"
+services:
+  wai-play:
+    container_name: wai-play
+    build: .
+    env_file: ./local.env.list
+    command: ["bash", "-lc", "echo dom"]
+    volumes:
+      - ./:/root/app
+    links:
+      - redis
+    ports:
+      - "3000:3000"
+
+  redis:
+    container_name: redis
+    image: "redis:3.0"
+    ports:
+      - "6379:6379"
