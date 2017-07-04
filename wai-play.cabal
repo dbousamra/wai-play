@@ -17,14 +17,16 @@ executable wai-play
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
-  ghc-options:         -threaded -Wall -fno-warn-unused-do-bind -O3
+  ghc-options:         -threaded
   other-modules:       Routes
                      , Api
                      , Types
   build-depends:       base >= 4.7 && < 5
                      , scotty
+                     , wai
+                     , wai-extra
                      , http-types
-                     , free
+                     , mtl
                      , text
                      , bytestring
                      , aeson
@@ -32,3 +34,8 @@ executable wai-play
                      , http-conduit
                      , async
                      , uuid
+                     , friday
+                     , friday-juicypixels
+                     , JuicyPixels
+                     , transformers
+                     , errors

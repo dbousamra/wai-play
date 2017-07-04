@@ -10,12 +10,10 @@ import Types
 main :: IO ()
 main = do 
   c <- getConfig
-  scotty 3000 $ routes (conn c)
+  scotty 3000 $ routes c
 
 getConfig :: IO Config
-getConfig = do
-  c <- getRedisConn
-  pure $ Config c
+getConfig = fmap Config getRedisConn
 
 getRedisConn :: IO R.Connection
 getRedisConn = R.checkedConnect R.defaultConnectInfo
